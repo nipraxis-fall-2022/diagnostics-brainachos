@@ -2,12 +2,12 @@
 
 Run as:
 
-    python3 scripts/validata_data.py data
+    python3 scripts/validate_data.py
 """
 
 from pathlib import Path
-import sys
 import hashlib
+
 
 def file_hash(filename):
     """ Get byte contents of file `filename`, return SHA1 hash
@@ -53,19 +53,22 @@ def validate_data(data_directory):
     # If hash for filename is not the same as the one in the file, raise
     # ValueError
     # This is a placeholder, replace it to write your solution.
-    raise NotImplementedError('This is just a template -- you are expected to code this.')
+    raise NotImplementedError(
+        'This is just a template -- fill out the template with code.')
 
 
 def main():
     # This function (main) called when this file run as a script.
-    #
-    # Get the data directory from the command line arguments
-    if len(sys.argv) < 2:
-        raise RuntimeError("Please give data directory on "
-                           "command line")
-    data_directory = sys.argv[1]
+    group_directory = (Path(__file__).parent.parent / 'data')
+    groups = list(group_directory.glob('group-??'))
+    if len(groups) == 0:
+        raise RuntimeError('No group directory in data directory: '
+                           'have you downloaded and unpacked the data?')
+
+    if len(groups) > 1:
+        raise RuntimeError('Too many group directories in data directory')
     # Call function to validate data in data directory
-    validate_data(data_directory)
+    validate_data(groups[0])
 
 
 if __name__ == '__main__':

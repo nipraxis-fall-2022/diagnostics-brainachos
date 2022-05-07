@@ -2,3 +2,12 @@
 
 [solution.validate_data]
 out_path = '{one_down}/scripts/validate_data.py'
+
+[solution.test_spm_funcs]
+out_path = '{one_down}/findoutlie/tests/test_spm_funcs.py'
+
+[solution.detectors]
+out_path = '{one_down}/findoutlie/detectors.py'
+
+[solution.test_detectors]
+out_path = '{one_down}/findoutlie/tests/test_detectors.py'
