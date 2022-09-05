@@ -1,0 +1,15 @@
+name: nipraxis
+
+dependencies:
+  - python=3.10
+  - nibabel
+  - numpy
+  - scipy
+  - matplotlib
+  - pytest
+  - pandas
+  - conda-forge::flit
+  - conda-forge::nibabel
+  - pip:
+    - nipraxis
+
