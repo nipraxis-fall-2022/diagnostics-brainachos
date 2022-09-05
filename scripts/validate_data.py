@@ -22,12 +22,13 @@ def file_hash(filename):
     hash : str
         SHA1 hexadecimal hash string for contents of `filename`.
     """
-    # Open the file, read contents as bytes.
-    # Calculate, return SHA1 has on the bytes from the file.
+    file = Path(filename)
+    bytes = file.read_bytes()
+    hash_bytes = hashlib.sha1(bytes).hexdigest()
     # This is a placeholder, replace it to write your solution.
     raise NotImplementedError(
         'This is just a template -- you are expected to code this.')
-
+    return hash_bytes
 
 def validate_data(data_directory):
     """ Read ``data_hashes.txt`` file in `data_directory`, check hashes
