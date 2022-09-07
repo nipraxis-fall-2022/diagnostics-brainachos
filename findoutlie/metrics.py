@@ -21,7 +21,6 @@ def dvars(img):
         volumes in `img`.
     """
     data = img.get_fdata()
-    n_voxels = data.shape[0] * data.shape[1] * data.shape[2]
-    data_2d = data.reshape(n_voxels, data.shape[-1])
+    data_2d = data.reshape(-1, data.shape[-1])
     dvals = np.sqrt(np.mean(np.square(np.diff(data_2d, axis=1)), axis=0))
     return dvals
